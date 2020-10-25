@@ -1,0 +1,32 @@
+module DFF_sync_TB;
+reg D,Clk,Reset;
+wire Q;
+DFF_sync_Reset uut (.D(D),.Clk(Clk),.Reset(Reset),.Q(Q));
+initial begin 
+		Clk = 1;
+		forever #100 Clk=~Clk;
+	end
+	
+	initial begin
+		// Initialize Inputs
+		D = 0;
+		Reset = 1;
+		#100;
+		Reset = 0;
+		#100;
+		D = 1;
+		#100;
+		D = 0;
+		#100;
+		D = 1;
+		#100;
+		D = 1;
+		#100;
+		D = 0;
+		#100;
+		D = 1;
+		#100;
+		D = 0;
+		#100;
+	end    
+endmodule

@@ -1,0 +1,14 @@
+module Latch(
+    input D,
+    input En,
+    input Reset,
+    output reg Q
+    );
+    always@(D or En or Reset)
+    begin
+     if(Reset)
+       Q<=1'b0;
+     else if(En)
+       Q<=D;
+    end
+endmodule

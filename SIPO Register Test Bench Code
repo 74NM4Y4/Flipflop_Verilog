@@ -1,0 +1,25 @@
+module SIPO_TB;
+reg Input,Clk,Reset;
+wire [3:0] Output;
+SIPO uut (.Input(Input),.Clk(Clk),.Reset(Reset),.Output(Output));
+initial begin 
+		Clk = 1;
+		forever #100 Clk=~Clk;
+	end
+	
+initial begin
+Input = 0;
+Reset = 1;
+#100;
+Reset = 0;
+#100;
+ Input = 1;
+ #100;
+ Input = 1;
+ #100;
+ Input = 0;
+ #100;
+ Input = 1;
+ #100;
+ end
+endmodule

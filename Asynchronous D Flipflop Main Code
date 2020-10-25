@@ -1,0 +1,14 @@
+module DFF_async_Reset(
+    input D,
+    input Clk,
+    input Reset,
+    output reg Q
+    );
+    always@(posedge Clk or posedge Reset)  // We have taken either positive edge of Clk or Reset
+    begin
+    if(Reset)
+       Q <= 1'b0;
+    else
+       Q <= D;
+    end      
+endmodule

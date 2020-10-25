@@ -1,2 +1,2 @@
 # Flipflop_Verilog
-Verilog codes for different types of flip flop and latch
+Verilog codes for different types of flip flop, latch and SIPO( Serial Input Parallel Output) Register

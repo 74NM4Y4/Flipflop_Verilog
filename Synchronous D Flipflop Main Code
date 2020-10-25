@@ -1,0 +1,14 @@
+module DFF_sync_Reset(
+    input D,
+    input Clk,
+    input Reset,
+    output reg Q
+    );
+    always@(posedge Clk)        // We have taken only positive edge of Clk
+    begin
+    if(Reset)
+       Q <= 1'b0;
+    else
+       Q <= D;
+    end      
+endmodule

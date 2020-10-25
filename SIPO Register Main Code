@@ -1,0 +1,13 @@
+module SIPO(
+    input Input,
+    input Clk,
+    input Reset,
+    output [3:0] Output
+    );
+    wire Q3,Q2,Q1,Q0;
+    DFF_async_Reset D3(Input,Clk,Reset,Q3);
+    DFF_async_Reset D2(Q3,Clk,Reset,Q2);
+    DFF_async_Reset D1(Q2,Clk,Reset,Q1);
+    DFF_async_Reset D0(Q1,Clk,Reset,Q0);
+    assign Output = {Q3,Q2,Q1,Q0};
+endmodule

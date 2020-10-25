@@ -1,0 +1,23 @@
+module JKFF(
+    input J,
+    input K,
+    input Clk,
+    input Reset,
+    output reg Q,
+    output Qbar
+    );
+    assign Qbar = ~Q;
+    always@(posedge Clk or negedge Reset)
+    begin
+     if(Reset)
+       Q <= 1'b0;
+     else
+     case({J,K})         //Concatenation
+        2'b00 : Q<=Q;
+        2'b01 : Q<=1'b0;
+        2'b10 : Q<=1'b1;
+        2'b11 : Q<=Qbar; 
+     endcase    
+    end
+    
+endmodule
